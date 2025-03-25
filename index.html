@@ -1,0 +1,30 @@
+<!--index.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>To Do List</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+<header>
+    <nav>
+        <div class="titre"> ToDoList</div>
+    </nav>
+</header>
+
+<button id="plus"> + </button>
+<div id="liste-tache"></div>
+ <!--We are using Node.js <span id="node-version"></span>,-->
+<!--Chromium <span id="chrome-version"></span>,-->
+<!--and Electron <span id="electron-version"></span>.-->
+
+<!-- Vous pouvez également demander que d’autres fichiers s’exécutent dans ce processus -->
+<script src="./renderer.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
