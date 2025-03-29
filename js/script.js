@@ -39,14 +39,15 @@ boutonPlus.addEventListener("click", function () {
             let boutonsMoins = document.querySelectorAll(".moins");
 
             boutonsMoins.forEach(function(bouton) {
-                console.log("fefefefefefef");
                 bouton.addEventListener("click", function () {
-                    cacher(baliseActuel)
+                    console.log("fefefefefefef");
+
+                    let parent = bouton.parentElement;
+                   parent.remove();
                 });
             });
 
 
-            listeTaches.innerHTML += `<br>`;
 
         });
     } else {
