@@ -1,38 +1,74 @@
-body{
+body {
     font-family: "SF Pro", "sans-serif";
     background-color: darkturquoise;
 }
 
 .titre {
-     /*font-weight: bold;*/
-    font-size: 5vh;
+     font-size: 5vh;
     margin-left: 25%;
     background: darkcyan;
     width: 50%;
     display: flex;
     border-radius: 6px;
     justify-content: center;
-  }
+}
 
-#liste-tache{
-    margin-top:10px ;
-    background-color: lightsteelblue;
+#liste-tache {
+    margin-top: 10px;
+    /*background-color: lightsteelblue;*/
     padding: 5px;
 }
 
-#plus{
+#plus {
 
 }
 
+#creation-tache {
+    margin: 30px;
+    background-color: slateblue;
+    border-radius: 6px;
+    padding: 10px;
+}
 
-@media(max-width:800px) {
+.nomDeLaTache{
+    font-size: 2vh;
+}
+
+.div-nomTache {
+    display: flex;
+    flex-direction: column;
+}
+
+.descriptionTache{
+    display: flex;
+    flex-direction: column;
+}
+
+.boutonValider{
+
+}
+
+#div-tache{
+    background-color: lightsteelblue;
+    border-radius: 6px;
+    padding: 10px;
+}
+.cache {
+    display: none;
+}
+
+.afficher{
+    display: block;
+}
+
+@media (max-width: 800px) {
     .titre {
         width: 70%;
         margin-left: 15%;
     }
 }
 
-@media(max-width:344px) {
+@media (max-width: 344px) {
     .titre {
         width: 70%;
         margin-left: 15%;
@@ -40,10 +76,18 @@ body{
     }
 }
 
-@media(max-width:160px) {
+@media (max-width: 160px) {
     .titre {
         width: 70%;
         margin-left: 15%;
         font-size: 1vh;
     }
+}
+
+
+.tache {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid darkcyan;
+    display: block;
 }
