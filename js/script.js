@@ -2,7 +2,6 @@
 const listeTaches = document.getElementById("liste-tache")
 const creationTache = document.getElementById("creation-tache")
 
-
 let cpt = 1;
 cacher(creationTache)
 
@@ -23,11 +22,10 @@ boutonPlus.addEventListener("click", function () {
 
 function creerTache() {
     creationTache.innerHTML =
-        `<div class="div-nomTache">Nom de la tâche
-            <br>
+        `<div class="div-nomTache">
             <input type="text" name="nomTache" id="nomTache" ></div>
             <div class="descriptionTache"> Description de la tâche 
-            <br>
+             
             <input type="text" name="descTache" id="descTache"></div>
             <div>Tâche importante
             <br> 
@@ -35,26 +33,35 @@ function creerTache() {
              <div class="boutonValider"> <input type="button" value="Valider" id="valider"></div>`;
 }
 
-function affichageTache() {
-    let nomTache = document.getElementById("nomTache");
-    let description = document.getElementById("descTache");
-    let importante = document.getElementById("important");
+ async function affichageTache() {
+     const nomTache = document.getElementById("nomTache").value;
+     const description = document.getElementById("descTache").value;
+     const importante = document.getElementById("important").checked;
 
-    const divTache = document.createElement('div');
-    divTache.id = "div-tache";
-    divTache.innerHTML = `
-        <strong class="nomDeLaTache">${nomTache.value}</strong>
-        <br>
-        ${description.value}
-        <br>
-        ${importante.checked ? 'Tâche importante !' : ''}
-        <button class="moins">X</button>`;
+     try {
+         const id = await window.db.ajouterTache(nomTache, description, importante);
+         const divTache = document.createElement('div');
+         divTache.id = "div-tache";
+         divTache.dataset.id = id;
+         divTache.innerHTML = `
+            <strong class="nomDeLaTache">${nomTache}</strong>
+            <br>
+            ${description}
+            <br>
+            ${importante ? 'Tâche importante !' : ''}
+            <button class="moins">X</button>`;
 
-    divTache.querySelector('.moins').addEventListener('click', function () {
-        divTache.remove();
-    });
-    listeTaches.appendChild(divTache);
-}
+         divTache.querySelector('.moins').addEventListener('click', async function() {
+             await window.db.supprimerTache(id);
+             divTache.remove();
+         });
+
+         listeTaches.appendChild(divTache);
+         cacher(creationTache);
+     } catch (err) {
+         console.error('Erreur:', err);
+     }
+ }
 
 function cacher(element) {
     element.classList.add('cache');
@@ -74,7 +81,30 @@ function afficherDate() {
      });
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
     afficherDate();
+    try {
+        const taches = await window.db.chargerTaches();
+        taches.forEach(tache => {
+            const divTache = document.createElement('div');
+            divTache.id = "div-tache";
+            divTache.dataset.id = tache.id;
+            divTache.innerHTML = `
+                <strong class="nomDeLaTache">${tache.nom}</strong>
+                <br>
+                ${tache.description}
+                <br>
+                ${tache.importante ? 'Tâche importante !' : ''}
+                <button class="moins">X</button>`;
 
+            divTache.querySelector('.moins').addEventListener('click', async function() {
+                await window.db.supprimerTache(tache.id);
+                divTache.remove();
+            });
+
+            listeTaches.appendChild(divTache);
+        });
+    } catch (err) {
+        console.error('Erreur chargement des tâches:', err);
+    }
 });
