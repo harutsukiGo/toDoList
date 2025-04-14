@@ -49,6 +49,7 @@ body {
     padding: 10px;
     background-color: white;
     position: relative;
+    border : 1px solid;
 }
 
 .nouvelleTache {
@@ -124,13 +125,14 @@ body {
 }
 
 #div-tache {
-    background-color: lightsteelblue;
+    background-color: white;
     border-radius: 6px;
     padding: 10px;
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     position: relative;
+    border : 1px solid;
     /*height: 50px;*/
  }
 
