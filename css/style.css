@@ -1,10 +1,10 @@
 body {
     font-family: "SF Pro", "sans-serif";
-    background-color: darkturquoise;
+    background-color: white;
 }
 
 .titre {
-     font-size: 2vh;
+    font-size: 2vh;
     /*margin-left: 25%;*/
     /*background: darkcyan;*/
     /*width: 50%;*/
@@ -14,13 +14,13 @@ body {
     /*color: white;*/
 }
 
-.today{
+.today {
     font-size: 6vh;
-    font-weight: bold;
+    font-weight: lighter;
 }
 
 
-#boutonPlus{
+#boutonPlus {
     margin-top: 5px;
     width: 340px;
     background-color: rgba(0, 0, 0, 0.5);
@@ -32,58 +32,151 @@ body {
     transition: transform 0.2s;
 }
 
-#boutonPlus:hover{
+#boutonPlus:hover {
     transform: scale(1.03);
 }
+
 #liste-tache {
     margin-top: 5px;
     /*background-color: lightsteelblue;*/
     padding: 5px;
 }
 
-#plus {
-
-}
 
 #creation-tache {
     margin: 30px;
-    background-color: slateblue;
     border-radius: 6px;
     padding: 10px;
+    background-color: white;
+    position: relative;
 }
 
-#nomTache{
+.nouvelleTache {
+    font-size: 3vh;
+    padding-bottom: 15px;
+    font-weight: lighter;
+}
 
+#nomTache {
+    font-size: 14px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
 }
-.nomDeLaTache{
-    font-size: 2vh;
+
+#descTache {
+    font-size: 12px;
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
 }
+
 
 .div-nomTache {
     display: flex;
     flex-direction: column;
 }
 
-.descriptionTache{
+.descriptionTache {
     display: flex;
     flex-direction: column;
 }
 
-.boutonValider{
-
+#valider {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+    transition: transform 0.2s;
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+    margin-top: 10px;
+    font-size: smaller;
 }
 
-#div-tache{
+#valider:hover {
+    background-color: chartreuse;
+    transform: scale(1.03);
+}
+
+#important {
+    display: none;
+}
+
+#importantButton {
+    width: 70px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+    transition: transform 0.2s;
+    margin-top: 10px;
+    font-size: small;
+}
+
+#importantButton:hover {
+    background-color: orange;
+    transform: scale(1.03);
+}
+
+#div-tache {
     background-color: lightsteelblue;
     border-radius: 6px;
     padding: 10px;
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /*height: 50px;*/
+ }
+
+.moins {
+    width: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+    transition: transform 0.2s;
+    /*margin-top: 10px;*/
+    font-size: smaller;
+    align-self: flex-end;
 }
+
+.moins:hover {
+    background-color: crimson;
+     transform: scale(1.03);
+}
+
+.iconeImportante{
+    background-color: orange;
+    border-radius: 15px;
+    padding: 10px;
+    width: 70px;
+    font-size: small;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.nomDeLaTache {
+    font-size: 3vh;
+ }
+
+.descriptionTache{
+    font-size: 2vh;
+    margin-top: 10px;
+}
+
 .cache {
     display: none;
 }
 
-.afficher{
+.afficher {
     display: block;
 }
 

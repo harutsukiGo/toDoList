@@ -23,7 +23,7 @@ db.run(`
     )
 `);
 
-
+ 
 ipcMain.handle('ajouter-tache', async (event, { nom, description, importante }) => {
     return new Promise((resolve, reject) => {
         db.run(
